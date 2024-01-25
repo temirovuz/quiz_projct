@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<h1>Result page</h1>
+
+    <h3>Foydalanuvchi: {{ user }}</h3>
+    <h3>Umumiy savollar soni: {{ total_question }}</h3>
+    <h3>To'g'ri javoblar soni: {{ correct }}</h3>
+    <h3>Noto'g'ri javoblasr soni: {{ wrong }}</h3>
+    <h3>Umumiy ball: {{ total }}</h3>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+    <h1>Natijalar Ruyxati</h1>
+    <hr>
+    <form method="get">
+    {{ results.form }}
+    <button type="submit">Filter</button>
+    </form>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Ism Familiya</th>
+            <th scope="col">Savol Turi</th>
+            <th scope="col">Umumiy savol</th>
+            <th scope="col">To'g'ri Javob</th>
+            <th scope="col">Ball</th>
+            <th scope="col">Sana va vaqt</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for result in results.qs %}
+            <tr>
+                <td>{{ result.user.first_name }} {{ result.user.last_name }}</td>
+                <td>{{ result.quiz.name }}</td>
+                <td>{{ result.total_question }}</td>
+                <td>{{ result.corrent_question }}</td>
+                <td>{{ result.total }}</td>
+                <th scope="row">{{ result.create_at|date:'Y-m-d H:i' }}</th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

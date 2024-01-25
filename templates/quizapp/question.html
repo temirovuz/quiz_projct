@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<h1>Test page</h1>
+<form method="post">
+    {% csrf_token %}
+    {% for q in questions %}
+        {{ q.name }}<br>
+        {% for answer in q.answers.all %}
+            <input type="radio" name="{{ q.name }}" type="hidden" value="{{ answer.pk }}">
+            <label>{{ answer.name }}</label><br>
+        {% endfor %}
+        <hr>
+    {% endfor %}
+
+    <button type="submit">Natijani kurish</button>
+</form>
+
+{% endblock %}
