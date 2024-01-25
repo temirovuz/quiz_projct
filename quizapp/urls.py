@@ -7,4 +7,5 @@ urlpatterns = [
     path('quiz/<int:pk>/', question, name='quistion'),
     path('results/', result_list, name='results'),
 
+
 ]
