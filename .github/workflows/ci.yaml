@@ -10,6 +10,16 @@ jobs:
   first:
     name: Install ubuntu
     runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:15
+        env:
+          POSTGRES_USER: quiz
+          POSTGRES_PASSWORD: 2002
+          POSTGRES_DB: quizdb
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - name: Update
         run: sudo apt update
@@ -22,4 +32,10 @@ jobs:
       - name: Run test
         env:
           DJANGO_SETTINGS_MODULE: QuizProject.settings.local
+          SQL_ENGINE: django.db.backends.postgresql
+          SQL_DATABASE: quizdb
+          SQL_USER: postgres
+          SQL_PASSWORD: 2002
+          SQL_HOST: localhost
+          SQL_PORT: 5432
         run: python manage.py test
