@@ -1,2 +1,9 @@
 name: quiz_project
 on: push
+jobs:
+  first:
+    name: Install ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update
+        run: sudo apt update
