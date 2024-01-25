@@ -60,3 +60,4 @@ class TestQuizTypeView(TestCase):
         response = self.client.post(self.url, data=pyload)
 
         assert response.status_code == 400
+
