@@ -14,7 +14,7 @@ jobs:
       db:
         image: postgres:15
         env:
-          POSTGRES_USER: quiz
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: 2002
           POSTGRES_DB: quizdb
         ports:
@@ -34,7 +34,7 @@ jobs:
           DJANGO_SETTINGS_MODULE: QuizProject.settings.local
           SQL_ENGINE: django.db.backends.postgresql
           SQL_DATABASE: quizdb
-          SQL_USER: quiz
+          SQL_USER: postgres
           SQL_PASSWORD: 2002
           SQL_HOST: localhost
           SQL_PORT: 5432
