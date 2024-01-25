@@ -6,7 +6,7 @@ from quizapp.models import QuizType, Question, Answer, Result
 class QuizTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = QuizType
-        fields = ['name','image']
+        fields = ['id', 'name', 'image']
 
     def validate(self, data):
         if len(data['name']) <= 2:
@@ -23,6 +23,7 @@ class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
         fields = ['name', 'is_right']
+
 
 class QuestionSerializer(serializers.ModelSerializer):
     quiz = QuizTypeSerializer(read_only=True)
