@@ -7,12 +7,12 @@ from quizapp.models import QuizType
 
 class TestQuizTypeSerializer(TestCase):
     def setUp(self):
-        self.quiz_type = QuizType.objects.create(name='Test quiz type')
+        self.quiztype = QuizType.objects.create(name='Test quiz type')
 
     def test_data(self):
-        serializer = QuizTypeSerializer(self.quiz_type).data
+        serializer = QuizTypeSerializer(self.quiztype).data
 
-        assert serializer['id'] == self.quiz_type.id
+        assert serializer['id'] == self.quiztype.id
 
 
 class TestHelloWord(TestCase):
