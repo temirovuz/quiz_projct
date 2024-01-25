@@ -7,3 +7,9 @@ jobs:
     steps:
       - name: Update
         run: sudo apt update
+      - name: check out repo
+        run: action/checkout@v3
+      - name: Install python3-pip
+        run: sudo apt install python3-pip
+      - name: Requirements.txt
+        run: pip install -r requirements.txt
