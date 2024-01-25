@@ -34,7 +34,7 @@ jobs:
           DJANGO_SETTINGS_MODULE: QuizProject.settings.local
           SQL_ENGINE: django.db.backends.postgresql
           SQL_DATABASE: quizdb
-          SQL_USER: postgres
+          SQL_USER: quiz
           SQL_PASSWORD: 2002
           SQL_HOST: localhost
           SQL_PORT: 5432
