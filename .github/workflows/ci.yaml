@@ -1,5 +1,11 @@
-name: quiz_project
-on: push
+name: Quiz Project
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   first:
     name: Install ubuntu
@@ -8,13 +14,13 @@ jobs:
       - name: Update
         run: sudo apt update
       - name: check out repo
-        uses: action/checkout@v3
+        uses: actions/checkout@v3
       - name: Install python3-pip
         run: sudo apt install python3-pip
-      - name: Requirements.txt
+      - name: Requirements install
         run: pip install -r requirements.txt
       - name: Run test
-        run: python manage.py test
         env:
           DJANGO_SETTINGS_MODULE: QuizProject.setting.local
-          SECRET_KEY: ''
+          SECRET_KEY: 'django-insecure-%r7j$wr1#-hwcfk^m81es@uw5xz@wfd-_s&ee5p)s$vl7iv54='
+        run: python manage.py test
