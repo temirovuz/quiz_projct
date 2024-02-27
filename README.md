@@ -1,3 +1,4 @@
 # quiz-p16
 
-# Django prohect
+# Django project
+
